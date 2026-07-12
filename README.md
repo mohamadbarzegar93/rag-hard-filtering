@@ -1,4 +1,23 @@
 (German version see below)
+# RAG Hard-Filtering Prototype
+
+This project explores a common production RAG problem: pure semantic
+search regularly retrieves the wrong document when multiple sources
+contain overlapping content. 
+The prototype simulates this with synthetic product catalogs from 4
+fictitious suppliers (NordicTech, AlpineSupply, BlitzMarkt, OmniHaul)
+whose product ranges deliberately overlap - similar laptops,
+headphones, and monitors sold under different providers. It compares
+two retrieval approaches:
+
+1. **Baseline** - pure semantic search over the whole vector store
+2. **Hard-filtered** - a mandatory metadata filter (provider) applied
+   before vector search, so a query can never return results outside
+   the intended scope
+
+Both approaches are evaluated on the same 25 test questions to
+measure how much hard filtering actually improves retrieval accuracy.
+
 ## Design choices
 
 - **No vendor lock-in**: embeddings are generated locally using an
@@ -137,3 +156,13 @@ von 24 % auf 0 %.
 - Der eigentliche Generierungsschritt (LLM-Antwort auf Basis des
   Kontexts) - der Fokus lag bewusst auf dem Retrieval-Vergleich, da
   genau das im Task gefordert war.
+- Hard-Filtering nur nach Anbieter, nicht nach Kategorie oder
+  Region**: Die Aufgabenstellung nennt Anbieter, Kategorie und Region
+  als mögliche Filterkriterien ("z. B."). Da das zugrundeliegende
+  Prinzip bei allen dreien identisch ist (Metadaten-Filter vor der
+  Vektorsuche), habe ich mich bewusst auf Anbieter beschränkt, um den
+  Kernmechanismus klar zu demonstrieren, statt Zeit in redundante
+  Wiederholung des gleichen Konzepts zu investieren. Kategorie- oder
+  Region-Filter ließen sich mit der bestehenden Metadatenstruktur
+  (bereits in den Produktdaten vorhanden) ohne größere Änderungen
+  ergänzen.
