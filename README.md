@@ -24,7 +24,7 @@ measure how much hard filtering actually improves retrieval accuracy.
   open-source model (sentence-transformers `all-MiniLM-L6-v2`) instead
   of a paid API like OpenAI. No API key is required to run this
   project, and it works fully offline after the first model download.
-- A vector database (ChromaDB) instead of a pretrained end-to-end
+- **A vector database (ChromaDB) instead of a pretrained end-to-end
   RAG model** (e.g. `facebook/rag-sequence-nq`): metadata filtering
   is standard across vector databases (Chroma, Pinecone, Weaviate,
   etc.), so any of them would support hard filtering. A pretrained
