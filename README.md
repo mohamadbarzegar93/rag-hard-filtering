@@ -1,3 +1,4 @@
+(German version see below)
 ## Design choices
 
 - **No vendor lock-in**: embeddings are generated locally using an
@@ -5,16 +6,6 @@
   of a paid API like OpenAI. No API key is required to run this
   project, and it works fully offline after the first model download.
 
-## Challenges encountered
-
-- **LangChain version mismatch**: In the original tutorial example project
- an older LangChain version where `text_splitter`,
-  `embeddings`, and `vectorstores` were all bundled into the main
-  `langchain` package. The installed version (1.x) has split these
-  into separate packages (`langchain-text-splitters`,
-  `langchain-huggingface`, `langchain-chroma`, etc.), so imports had
-  to be updated accordingly (e.g. `langchain.text_splitter` →
-  `langchain_text_splitters`).
 ## Known limitations / future improvements
 
 - **Fixed `k` regardless of filtered pool size**: when a hard filter
@@ -49,3 +40,100 @@
   Given the project deadline, only the first approach was implemented
   and evaluated. Building and evaluating a query-to-filter inference
   step would be a natural next iteration.
+
+## Results
+
+Evaluated on 25 test questions spanning all 4 providers and 5 product categories.
+
+| Metric                          | Baseline | Hard-Filtered |
+|----------------------------------|----------|----------------|
+| Hit rate @5                      | 100.0%   | 100.0%         |
+| Top-1 accuracy                   | 76.0%    | 100.0%         |
+| Wrong-provider results at top-1  | 6 / 25   | 0 / 25         |
+
+Full per-question results: [`eval/results/baseline_results.json`](eval/results/base_line_results.json),
+[`eval/results/filtered_results.json`](eval/results/filtered_results.json)
+
+## Assessment
+
+Both methods brought up the expected product within the top-5 results
+with 100% accuracy which given the smakk data size is not odd.
+Hard-filtering made the real difference in top-1 result with 100% compared to 
+76% accuracy of the baseline model which means  was wrong in 6 out of 25 questions (24%), while hard filtering
+never did, by construction - it cannot physically return a
+non-matching provider's product, since the filter is applied before
+the vector search even runs.
+
+For a production customer-facing chatbot, top-1 accuracy is what
+actually matters: a user asking a question expects the first answer
+to be correct, not the third or fourth. On that measure, hard
+filtering is a clear and complete fix for the failure mode described
+in the task - wrong-document selection drops from 24% to 0%.
+
+2 of the baseline failures:
+Q1: 14-inch business laptop with 16GB RAM
+  Expected: NordicTech (NT-001)
+  Got:      BlitzMarkt (BM-001)
+
+Q8: ANC headphones made in the EU
+  Expected: AlpineSupply (AS-003)
+  Got:      NordicTech (NT-003)
+
+## Kurzzusammenfassung (Deutsch)
+
+Dieses Projekt zeigt, wie obligatorisches Hard-Filtering (nach
+Anbieter) vor der Vektorsuche die Trefferquote bei mehrdeutigen,
+überschneidenden Produktkatalogen verbessert. Bei reiner semantischer
+Suche wählte das System in 24% der Testfragen ein Produkt vom
+falschen Anbieter als erste Antwort aus - mit Hard-Filtering sank
+diese Quote auf 0%.
+
+## Ergebnisse & Einschätzung
+
+Evaluiert anhand von 25 Testfragen über alle 4 Anbieter und 5 Produktkategorien hinweg.
+
+| Metrik                              | Baseline | Hard-Filtering |
+|--------------------------------------|----------|-----------------|
+| Trefferquote @5                      | 100,0 %  | 100,0 %         |
+| Top-1-Genauigkeit                    | 76,0 %   | 100,0 %         |
+| Falscher Anbieter auf Platz 1        | 6 / 25   | 0 / 25          |
+
+**Einschätzung:** Beide Ansätze finden das richtige Produkt in fast
+allen Fällen irgendwo unter den Top-5 (100 % Trefferquote) - das
+liegt an der überschaubaren Datenmenge, in der jedes Produkt
+mindestens eine semantisch nahe Entsprechung hat. Der entscheidende
+Unterschied zeigt sich bei Platz 1: reine semantische Suche wählte in
+6 von 25 Fällen (24 %) ein Produkt eines falschen Anbieters als erste
+Antwort. Beim Hard-Filtering kann das grundsätzlich nicht passieren,
+da der Filter bereits vor der Vektorsuche angewendet wird.
+
+Für einen produktiven Kundenchatbot ist die Top-1-Genauigkeit die
+relevante Kennzahl, da Nutzer eine korrekte erste Antwort erwarten.
+Hard-Filtering löst das im Task beschriebene Problem (falsches
+Dokument wird ausgewählt) hier vollständig - die Fehlerquote sinkt
+von 24 % auf 0 %.
+
+## Was priorisierst du, was lässt du bewusst weg?
+
+**Priorisiert:**
+- Ein lauffähiger End-to-End-Vergleich zwischen Baseline und
+  Hard-Filtering mit echten, reproduzierbaren Zahlen (nicht nur
+  Behauptungen) - das war der eigentliche Kern der Aufgabe.
+- Realistische, überschneidende Testdaten über 4 Anbieter hinweg,
+  damit das Problem ("falsches Dokument wird ausgewählt") tatsächlich
+  sichtbar wird und nicht nur behauptet werden muss.
+- Eine lokale, anbieterunabhängige Embedding-Lösung (kein API-Key
+  nötig) - passend zum Produktionskontext, den ihr beschrieben habt.
+- Eine ehrliche Fehleranalyse: konkrete Beispiele, bei denen die
+  Baseline versagt, statt nur einer Kennzahlentabelle.
+
+**Bewusst weggelassen:**
+- Tuning von Chunk-Größe, Embedding-Modell oder Suchparametern - die
+  Standardwerte reichen aus, um den Effekt zu zeigen; eine
+  Optimierung hätte Zeit gekostet, ohne die Kernaussage zu verändern.
+- Automatische Ableitung des Filterwerts aus der Anfrage selbst - ich
+  gehe davon aus, dass der Anbieter aus Session-/Kontodaten bekannt
+  ist, wie es in einem echten Chatbot-Kontext üblich wäre.
+- Der eigentliche Generierungsschritt (LLM-Antwort auf Basis des
+  Kontexts) - der Fokus lag bewusst auf dem Retrieval-Vergleich, da
+  genau das im Task gefordert war.
