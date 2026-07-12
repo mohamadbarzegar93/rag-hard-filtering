@@ -1,0 +1,34 @@
+[
+  {
+    "product_id": "NT-001",
+    "provider": "NordicTech",
+    "category": "laptops",
+    "region": "EU",
+    "name": "NordicBook Pro 14",
+    "description": "14-inch business laptop, 16GB RAM, 512GB SSD, aluminum chassis, EU energy-efficiency certified. Designed for professionals who need reliable all-day performance."
+  },
+  {
+    "product_id": "NT-002",
+    "provider": "NordicTech",
+    "category": "laptops",
+    "region": "EU",
+    "name": "NordicBook Air 13",
+    "description": "13-inch ultralight laptop, 8GB RAM, 256GB SSD. Built for mobile professionals who travel frequently between EU offices."
+  },
+  {
+    "product_id": "NT-003",
+    "provider": "NordicTech",
+    "category": "headphones",
+    "region": "EU",
+    "name": "NordicSound ANC Pro",
+    "description": "Over-ear noise-cancelling headphones with 30-hour battery life, designed and manufactured in the EU."
+  },
+  {
+    "product_id": "NT-004",
+    "provider": "NordicTech",
+    "category": "monitors",
+    "region": "EU",
+    "name": "NordicView 27 4K",
+    "description": "27-inch 4K IPS monitor with USB-C power delivery, aimed at hybrid office setups."
+  }
+]

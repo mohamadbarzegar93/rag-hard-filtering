@@ -1,0 +1,34 @@
+[
+  {
+    "product_id": "AS-001",
+    "provider": "AlpineSupply",
+    "category": "laptops",
+    "region": "EU",
+    "name": "AlpineBook Business 14",
+    "description": "14-inch business laptop, 16GB RAM, 512GB SSD, magnesium alloy body, EU energy-efficiency certified. Marketed toward professionals needing dependable daily performance."
+  },
+  {
+    "product_id": "AS-002",
+    "provider": "AlpineSupply",
+    "category": "laptops",
+    "region": "EU",
+    "name": "AlpineBook Ultralight 13",
+    "description": "13-inch lightweight laptop, 8GB RAM, 256GB SSD, aimed at professionals who commute often within the EU."
+  },
+  {
+    "product_id": "AS-003",
+    "provider": "AlpineSupply",
+    "category": "headphones",
+    "region": "EU",
+    "name": "AlpineAudio Silence Pro",
+    "description": "Over-ear ANC headphones, 28-hour battery, EU-manufactured, comparable feature set to competing EU audio brands."
+  },
+  {
+    "product_id": "AS-004",
+    "provider": "AlpineSupply",
+    "category": "keyboards",
+    "region": "EU",
+    "name": "AlpineType Mechanical",
+    "description": "Compact mechanical keyboard with hot-swappable switches, targeted at EU-based developers and office workers."
+  }
+]

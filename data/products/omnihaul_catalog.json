@@ -1,0 +1,34 @@
+[
+  {
+    "product_id": "OH-001",
+    "provider": "OmniHaul",
+    "category": "laptops",
+    "region": "Global",
+    "name": "OmniHaul Marketplace Business Laptop 14-inch",
+    "description": "Third-party seller listing: 14-inch business laptop, 16GB RAM, 512GB SSD, shipped globally via OmniHaul marketplace."
+  },
+  {
+    "product_id": "OH-002",
+    "provider": "OmniHaul",
+    "category": "headphones",
+    "region": "Global",
+    "name": "OmniHaul Choice ANC Headphones",
+    "description": "Best-seller noise-cancelling headphones on OmniHaul marketplace, fulfilled by OmniHaul, ships worldwide."
+  },
+  {
+    "product_id": "OH-003",
+    "provider": "OmniHaul",
+    "category": "keyboards",
+    "region": "Global",
+    "name": "OmniHaul Basics Mechanical Keyboard",
+    "description": "Budget mechanical keyboard, top-rated by OmniHaul marketplace customers globally."
+  },
+  {
+    "product_id": "OH-004",
+    "provider": "OmniHaul",
+    "category": "tvs",
+    "region": "Global",
+    "name": "OmniHaul Deals 55-inch OLED TV",
+    "description": "Discounted 55-inch OLED TV, frequent lightning-deal item on OmniHaul marketplace."
+  }
+]

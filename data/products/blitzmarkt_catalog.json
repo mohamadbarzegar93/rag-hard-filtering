@@ -1,0 +1,34 @@
+[
+  {
+    "product_id": "BM-001",
+    "provider": "BlitzMarkt",
+    "category": "laptops",
+    "region": "EU",
+    "name": "BlitzBook 14 Business Edition",
+    "description": "14-inch laptop, 16GB RAM, 512GB SSD, sold through BlitzMarkt's business electronics line across EU stores."
+  },
+  {
+    "product_id": "BM-002",
+    "provider": "BlitzMarkt",
+    "category": "tvs",
+    "region": "EU",
+    "name": "BlitzView 55 OLED",
+    "description": "55-inch OLED television with HDR10+ support, popular in-store big-box electronics purchase."
+  },
+  {
+    "product_id": "BM-003",
+    "provider": "BlitzMarkt",
+    "category": "headphones",
+    "region": "EU",
+    "name": "BlitzAudio ANC 300",
+    "description": "Noise-cancelling over-ear headphones, budget-to-midrange tier, sold in BlitzMarkt's audio department."
+  },
+  {
+    "product_id": "BM-004",
+    "provider": "BlitzMarkt",
+    "category": "monitors",
+    "region": "EU",
+    "name": "BlitzView Office 27",
+    "description": "27-inch 4K monitor with USB-C, part of BlitzMarkt's office equipment range."
+  }
+]
