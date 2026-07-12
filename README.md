@@ -140,7 +140,7 @@ Hard-Filtering löst das im Task beschriebene Problem (falsches
 Dokument wird ausgewählt) hier vollständig - die Fehlerquote sinkt
 von 24 % auf 0 %.
 
-## Was priorisierst du, was lässt du bewusst weg?
+## Was ich priorisiere und was ich bewusst weglasse
 
 **Priorisiert:**
 - Ein lauffähiger End-to-End-Vergleich zwischen Baseline und
