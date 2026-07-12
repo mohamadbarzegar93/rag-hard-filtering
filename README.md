@@ -24,6 +24,14 @@ measure how much hard filtering actually improves retrieval accuracy.
   open-source model (sentence-transformers `all-MiniLM-L6-v2`) instead
   of a paid API like OpenAI. No API key is required to run this
   project, and it works fully offline after the first model download.
+- A vector database (ChromaDB) instead of a pretrained end-to-end
+  RAG model** (e.g. `facebook/rag-sequence-nq`): metadata filtering
+  is standard across vector databases (Chroma, Pinecone, Weaviate,
+  etc.), so any of them would support hard filtering. A pretrained
+  model like `rag-sequence-nq` is tied to a fixed index (Wikipedia)
+  and can't be filtered on custom metadata at all - ruling out that
+  whole category of tool. Chroma was chosen for being lightweight,
+  local, and simple to set up.
 
 ## Known limitations / future improvements
 
@@ -138,6 +146,15 @@ von 24 % auf 0 %.
 - Ein lauffähiger End-to-End-Vergleich zwischen Baseline und
   Hard-Filtering mit echten, reproduzierbaren Zahlen (nicht nur
   Behauptungen) - das war der eigentliche Kern der Aufgabe.
+- Eine Vektordatenbank (ChromaDB) statt eines vortrainierten
+  End-to-End-RAG-Modells** (z. B. `facebook/rag-sequence-nq`):
+  Metadaten-Filterung ist bei Vektordatenbanken Standard (Chroma,
+  Pinecone, Weaviate etc.), jede davon hätte Hard-Filtering
+  ermöglicht. Ein vortrainiertes Modell wie `rag-sequence-nq` ist
+  dagegen an einen festen Index (Wikipedia) gebunden und lässt sich
+  nicht nach eigenen Metadaten filtern - diese Kategorie von Tool
+  scheidet also grundsätzlich aus. Chroma wurde wegen seiner
+  Einfachheit, lokalen Ausführung und leichten Einrichtung gewählt.
 - Realistische, überschneidende Testdaten über 4 Anbieter hinweg,
   damit das Problem ("falsches Dokument wird ausgewählt") tatsächlich
   sichtbar wird und nicht nur behauptet werden muss.
