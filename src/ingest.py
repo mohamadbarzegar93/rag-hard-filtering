@@ -37,19 +37,19 @@ for file in glob.glob(DATA_PATH):
                 "region" : product["region"]
             }
             documents.append(Document(page_content=page_content, metadata= metadata))
-            print(f"Loaded {len(documents)} product documents from {DATA_PATH}.")
+print(f"Loaded {len(documents)} product documents from {DATA_PATH}.")
             
 
-            # Split the documents into smaller chunks
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=500,
+# Split the documents into smaller chunks
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=500,
                                                         chunk_overlap=50)
-            chunks = text_splitter.split_documents(documents)
-            print(f"Split into {len(documents)} chunks")
+chunks = text_splitter.split_documents(documents)
+print(f"Split into {len(documents)} chunks")
 
-            #Creating Embedding using a local model
-            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-            print(f"Created embeddings for {len(documents)} chunks")
+#Creating Embedding using a local model
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+print(f"Created embeddings for {len(documents)} chunks")
 
-            #Embedding the chinks as vectors and loading them into the database
-            db_chroma = Chroma.from_documents(chunks, embeddings, persist_directory=CHROMA_PATH)
-            print(f"{len(documents)} chunks stored into Chroma database at {CHROMA_PATH}.")
+#Embedding the chinks as vectors and loading them into the database
+db_chroma = Chroma.from_documents(chunks, embeddings, persist_directory=CHROMA_PATH)
+print(f"{len(documents)} chunks stored into Chroma database at {CHROMA_PATH}.")
