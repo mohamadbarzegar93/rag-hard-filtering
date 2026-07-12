@@ -1,0 +1,26 @@
+6 questions where baseline picked the wrong provider at top-1:
+
+Q1: 14-inch business laptop with 16GB RAM
+  Expected: NordicTech (NT-001)
+  Got:      BlitzMarkt (BM-001)
+
+Q8: ANC headphones made in the EU
+  Expected: AlpineSupply (AS-003)
+  Got:      NordicTech (NT-003)
+
+Q11: 14-inch laptop from the business electronics line
+  Expected: BlitzMarkt (BM-001)
+  Got:      OmniHaul (OH-001)
+
+Q13: budget noise-cancelling headphones in-store
+  Expected: BlitzMarkt (BM-003)
+  Got:      OmniHaul (OH-002)
+
+Q17: best-selling ANC headphones online marketplace
+  Expected: OmniHaul (OH-002)
+  Got:      BlitzMarkt (BM-003)
+
+Q23: EU energy-efficiency certified business laptop
+  Expected: AlpineSupply (AS-001)
+  Got:      NordicTech (NT-001)
+
