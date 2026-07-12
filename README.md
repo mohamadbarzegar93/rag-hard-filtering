@@ -84,9 +84,9 @@ Full per-question results: [`eval/results/baseline_results.json`](eval/results/b
 ## Assessment
 
 Both methods brought up the expected product within the top-5 results
-with 100% accuracy which given the smakk data size is not odd.
-Hard-filtering made the real difference in top-1 result with 100% compared to 
-76% accuracy of the baseline model which means  was wrong in 6 out of 25 questions (24%), while hard filtering
+with 100% accuracy which given the small data size is not odd.
+**Hard-filtering made the real difference in top-1 result with 100% compared to 
+76% accuracy of the baseline model** which means it was wrong in 6 out of 25 questions (24%), while hard filtering
 never did, by construction - it cannot physically return a
 non-matching provider's product, since the filter is applied before
 the vector search even runs.
@@ -95,9 +95,9 @@ For a production customer-facing chatbot, top-1 accuracy is what
 actually matters: a user asking a question expects the first answer
 to be correct, not the third or fourth. On that measure, hard
 filtering is a clear and complete fix for the failure mode described
-in the task - wrong-document selection drops from 24% to 0%.
+in the task - **wrong-document selection drops from 24% to 0%.**
 
-2 of the baseline failures:
+**2 of the baseline failures:**
 Q1: 14-inch business laptop with 16GB RAM
   Expected: NordicTech (NT-001)
   Got:      BlitzMarkt (BM-001)
@@ -110,10 +110,10 @@ Q8: ANC headphones made in the EU
 
 Dieses Projekt zeigt, wie obligatorisches Hard-Filtering (nach
 Anbieter) vor der Vektorsuche die Trefferquote bei mehrdeutigen,
-überschneidenden Produktkatalogen verbessert. Bei reiner semantischer
+überschneidenden Produktkatalogen verbessert. **Bei reiner semantischer
 Suche wählte das System in 24% der Testfragen ein Produkt vom
 falschen Anbieter als erste Antwort aus - mit Hard-Filtering sank
-diese Quote auf 0%.
+diese Quote auf 0%.**
 
 ## Ergebnisse & Einschätzung
 
@@ -158,7 +158,7 @@ von 24 % auf 0 %.
 - Realistische, überschneidende Testdaten über 4 Anbieter hinweg,
   damit das Problem ("falsches Dokument wird ausgewählt") tatsächlich
   sichtbar wird und nicht nur behauptet werden muss.
-- Eine lokale, anbieterunabhängige Embedding-Lösung (kein API-Key
+- Eine lokale, anbieterunabhängige (kein Vendo-lock-in) Embedding-Lösung (kein API-Key
   nötig) - passend zum Produktionskontext, den ihr beschrieben habt.
 - Eine ehrliche Fehleranalyse: konkrete Beispiele, bei denen die
   Baseline versagt, statt nur einer Kennzahlentabelle.
@@ -174,12 +174,11 @@ von 24 % auf 0 %.
   Kontexts) - der Fokus lag bewusst auf dem Retrieval-Vergleich, da
   genau das im Task gefordert war.
 - Hard-Filtering nur nach Anbieter, nicht nach Kategorie oder
-  Region**: Die Aufgabenstellung nennt Anbieter, Kategorie und Region
-  als mögliche Filterkriterien ("z. B."). Da das zugrundeliegende
-  Prinzip bei allen dreien identisch ist (Metadaten-Filter vor der
-  Vektorsuche), habe ich mich bewusst auf Anbieter beschränkt, um den
-  Kernmechanismus klar zu demonstrieren, statt Zeit in redundante
-  Wiederholung des gleichen Konzepts zu investieren. Kategorie- oder
-  Region-Filter ließen sich mit der bestehenden Metadatenstruktur
-  (bereits in den Produktdaten vorhanden) ohne größere Änderungen
-  ergänzen.
+  Region: Kategorie und Region wären ebenfalls mögliche
+  Filterkriterien gewesen. Da das zugrundeliegende Prinzip bei allen
+  dreien identisch ist (Metadaten-Filter vor der Vektorsuche), habe
+  ich mich bewusst auf Anbieter beschränkt, um den Kernmechanismus
+  klar zu demonstrieren, statt Zeit in die redundante Wiederholung
+  des gleichen Konzepts zu investieren. Kategorie- oder Region-Filter
+  ließen sich mit der bestehenden Metadatenstruktur (bereits in den
+  Produktdaten vorhanden) ohne größere Änderungen ergänzen.
