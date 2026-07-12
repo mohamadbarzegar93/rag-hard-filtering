@@ -31,3 +31,21 @@
   - cap `k` to the actual size of the filtered pool, or
   - drop results above a distance threshold and return fewer than
     `k` when nothing else qualifies.
+
+- **Filter value is provided, not inferred**: in this prototype, the
+  provider used for hard-filtering is passed in directly per test
+  question (representing a customer already known to belong to one
+  provider, e.g. via account/session context). No logic was built to
+  *infer* the correct provider from the query text itself when it
+  isn't already known.
+
+  In a production system, this would need either:
+  - upstream context (session/account state) to supply the filter
+    value reliably, as assumed here, or
+  - a query-classification step (e.g. a lightweight intent/entity
+    extraction pass, or a small classifier) to derive the filter
+    from the question text when session context isn't available.
+
+  Given the project deadline, only the first approach was implemented
+  and evaluated. Building and evaluating a query-to-filter inference
+  step would be a natural next iteration.

@@ -1,0 +1,31 @@
+[
+  {"id": 1, "query": "14-inch business laptop with 16GB RAM", "expected_provider": "NordicTech", "expected_product_id": "NT-001"},
+  {"id": 2, "query": "lightweight 13-inch laptop for travel", "expected_provider": "NordicTech", "expected_product_id": "NT-002"},
+  {"id": 3, "query": "noise-cancelling over-ear headphones with long battery life", "expected_provider": "NordicTech", "expected_product_id": "NT-003"},
+  {"id": 4, "query": "27-inch 4K monitor with USB-C for hybrid office setup", "expected_provider": "NordicTech", "expected_product_id": "NT-004"},
+  {"id": 5, "query": "aluminum chassis laptop with EU energy certification", "expected_provider": "NordicTech", "expected_product_id": "NT-001"},
+
+  {"id": 6, "query": "business laptop with magnesium alloy body", "expected_provider": "AlpineSupply", "expected_product_id": "AS-001"},
+  {"id": 7, "query": "ultralight 13-inch laptop for commuting", "expected_provider": "AlpineSupply", "expected_product_id": "AS-002"},
+  {"id": 8, "query": "ANC headphones made in the EU", "expected_provider": "AlpineSupply", "expected_product_id": "AS-003"},
+  {"id": 9, "query": "mechanical keyboard with hot-swappable switches", "expected_provider": "AlpineSupply", "expected_product_id": "AS-004"},
+  {"id": 10, "query": "compact keyboard for developers", "expected_provider": "AlpineSupply", "expected_product_id": "AS-004"},
+
+  {"id": 11, "query": "14-inch laptop from the business electronics line", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-001"},
+  {"id": 12, "query": "55-inch OLED TV with HDR10+ support", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-002"},
+  {"id": 13, "query": "budget noise-cancelling headphones in-store", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-003"},
+  {"id": 14, "query": "27-inch 4K office monitor with USB-C", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-004"},
+  {"id": 15, "query": "big-box store OLED television", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-002"},
+
+  {"id": 16, "query": "third-party marketplace business laptop 14-inch", "expected_provider": "OmniHaul", "expected_product_id": "OH-001"},
+  {"id": 17, "query": "best-selling ANC headphones online marketplace", "expected_provider": "OmniHaul", "expected_product_id": "OH-002"},
+  {"id": 18, "query": "budget mechanical keyboard top-rated by customers", "expected_provider": "OmniHaul", "expected_product_id": "OH-003"},
+  {"id": 19, "query": "discounted 55-inch OLED TV lightning deal", "expected_provider": "OmniHaul", "expected_product_id": "OH-004"},
+  {"id": 20, "query": "globally shipped laptop with 512GB SSD", "expected_provider": "OmniHaul", "expected_product_id": "OH-001"},
+
+  {"id": 21, "query": "16GB RAM 512GB SSD laptop for professionals", "expected_provider": "NordicTech", "expected_product_id": "NT-001"},
+  {"id": 22, "query": "over-ear headphones with active noise cancellation", "expected_provider": "NordicTech", "expected_product_id": "NT-003"},
+  {"id": 23, "query": "EU energy-efficiency certified business laptop", "expected_provider": "AlpineSupply", "expected_product_id": "AS-001"},
+  {"id": 24, "query": "55-inch television with HDR support", "expected_provider": "BlitzMarkt", "expected_product_id": "BM-002"},
+  {"id": 25, "query": "headphones fulfilled and shipped worldwide", "expected_provider": "OmniHaul", "expected_product_id": "OH-002"}
+]
